@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>南湾皮肤科预约指南</title>
+<meta name="description" content="San Jose 周边普通皮肤科，按就诊区域与转诊方式筛选。">
+<style>
+:root{color-scheme:light;--ink:#183332;--muted:#45615f;--line:#d7e3df;--paper:#f3f8f6;--green:#086554}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}a{color:var(--green)}button,a,select{touch-action:manipulation}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #b36721;outline-offset:3px}.wrap{width:min(1136px,calc(100% - 48px));margin:auto}.top{background:#103c38;color:#e4f4ed;border-bottom:1px solid #41645e}.top .wrap{min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}.top a{color:inherit;text-decoration:none}.brand{font-weight:750;letter-spacing:.04em}.hero{background:radial-gradient(ellipse at top right,#26665a,#103c38 65%);color:#f0faf6;padding:50px 0}.hero .wrap{display:grid;grid-template-columns:1fr 330px;gap:32px;align-items:center}.eyebrow{color:#b3e4d4;font-size:.84rem;letter-spacing:.13em;font-weight:750}.hero h1{font-size:clamp(2.35rem,5vw,4rem);line-height:1.15;letter-spacing:-.045em;margin:10px 0 12px}.hero p{color:#d0e7de;margin:.3em 0}.insurance{background:#f1fbf6;border-radius:18px;padding:20px;color:var(--ink)}.insurance label{font-weight:750}.insurance select{width:100%;border:1px solid #8aad9f;background:#fff;border-radius:8px;padding:9px;margin:8px 0;font:inherit;color:inherit}.insurance p{color:var(--muted);font-size:.89rem}.section{padding:30px 0}.heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}h2{margin:0;font-size:1.55rem}.heading p,.hint{color:var(--muted);margin:.25em 0}.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}.filters button,.copy{border:1px solid #a9c3bb;border-radius:999px;background:white;color:var(--ink);font:inherit;padding:7px 15px;cursor:pointer}.filters button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.script{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 3px 12px #173f3410}.card{display:flex;flex-direction:column}.tag{font-size:.82rem;color:#246151;font-weight:750}.card h3{font-size:1.15rem;margin:5px 0}.card p{margin:3px 0;color:var(--muted);font-size:.9rem}.actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding-top:13px;margin-top:auto}.call{border-radius:8px;background:#e4f3ed;padding:5px 10px;text-decoration:none;font-weight:700}.script{margin-bottom:28px}.script blockquote{border-left:3px solid #8fc4b4;margin:12px 0;padding-left:14px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:16px 0 22px;color:var(--muted);font-size:.9rem}@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.hero .wrap{grid-template-columns:1fr 290px}}@media(max-width:620px){.wrap{width:calc(100% - 32px)}.hero{padding:30px 0}.hero .wrap,.cards{grid-template-columns:1fr}.hero .wrap{gap:20px}}@media print{.top,.filters,.copy{display:none}.hero{padding:20px 0;background:white;color:var(--ink)}.hero p,.eyebrow{color:var(--muted)}.card{break-inside:avoid}.section{padding:15px 0}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="brand">南湾 · 就医导航</span><a href="#script">预约英文话术</a></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div><div class="eyebrow">SAN JOSE & SOUTH BAY</div><h1>皮肤科预约指南</h1><p>以 San Jose 95126 周边为起点，查找普通皮肤科面诊。</p><p>点电话询问最早号源、候补名单和转诊要求。</p></div>
+<div class="insurance"><label for="plan">按保险类型查看预约步骤</label><select id="plan"><option value="unknown">尚未确认计划</option><option value="direct">计划允许直接看专科</option><option value="referral">HMO 或计划要求转诊</option><option value="kaiser">Kaiser Permanente</option></select><p id="steps" aria-live="polite"></p></div>
+</div></section>
+<section class="wrap section" aria-labelledby="clinic-title"><div class="heading"><h2 id="clinic-title">医院与诊所</h2><p id="count" aria-live="polite"></p></div><p class="hint">按区域分组，组内不代表车程排名。先从 San Jose 组问号。点「查车程」可按 95126 出发查询实时路线。预约前核实医生与地址是否都在网络内。</p>
+<div class="filters" aria-label="筛选就诊区域"><button type="button" aria-pressed="true" data-region="all">全部</button><button type="button" aria-pressed="false" data-region="sj">San Jose</button><button type="button" aria-pressed="false" data-region="sc">Santa Clara / Los Gatos</button><button type="button" aria-pressed="false" data-region="mv">Mountain View / Los Altos</button></div>
+<div id="cards" class="cards"></div></section>
+<section class="wrap"><div id="script" class="script"><h2>打电话怎么说</h2><blockquote id="script-text">Hi, I’d like to book an in-person medical dermatology visit for a recurring skin concern. What is your earliest appointment? Can I join the cancellation list? Do I need a referral, and are the clinician and this office in network for my plan?</blockquote><button class="copy" type="button">复制英文话术</button> <span id="copy-status" role="status"></span></div></section>
+</main>
+<footer><div class="wrap">诊所资料以各机构官网为准。号源和保险覆盖请在预约前确认。</div></footer>
+<script>
+const plans = {
+  unknown: '先查看保险卡上的完整计划名和网络，或打卡背面的会员服务电话。此页暂未核验具体计划的覆盖。',
+  direct: '先在保险会员目录核对医生和地址，再打电话约普通皮肤科面诊，并确认是否另需授权。',
+  referral: '先联系家庭医生或所属医疗组。如果你的保险指定 NEMS，可先问 Lundy 诊所能否评估并转诊皮肤科。',
+  kaiser: '通过 Kaiser 联系家庭医生，请其评估并转诊。Santa Clara 皮肤科官网列为仅限转诊。'
+};
+const clinics = [
+  ['sj','San Jose · 家庭医生 / 转诊','东北医疗中心 NEMS · Lundy','1870 Lundy Ave, San Jose, CA 95131','888-500-1886','可用普通话约家庭医生评估。直接约皮肤科需向诊所确认，必要时由家庭医生转诊。','https://www.nems.org/business-providers/san-jose-1870-lundy-clinic/'],
+  ['sj','San Jose · 县医疗系统','Valley Specialty Center','751 S Bascom Ave','408-885-5000','总机可协助确认皮肤科转诊流程','https://stgenhospital.sccgov.org/healthlink/Dermatology.pdf'],
+  ['sj','San Jose · Sutter / PAMF','Michelle Cheng, MD','2400 Samaritan Dr, Suite 105','650-934-7676','官网提供新患者预约电话','https://www.sutterhealth.org/find-provider/dr-michelle-y-cheng-1046247745'],
+  ['sj','San Jose · Kaiser','Kaiser San Jose Medical Center','San Jose Medical Center','','Kaiser 会员可先在门户联系家庭医生','https://healthy.kaiserpermanente.org/northern-california/facilities/san-jose-medical-center-100322/departments/dermatology-dlp-102696'],
+  ['sc','Santa Clara · Stanford','Stanford General Dermatology','2518 Mission College Blvd','650-723-6316','官网有新患者在线预约入口','https://stanfordhealthcare.org/medical-clinics/general-dermatology-santa-clara.html'],
+  ['sc','Santa Clara · Kaiser','Kaiser Santa Clara Medical Center','Santa Clara Medical Center','','官网列为仅限转诊','https://healthy.kaiserpermanente.org/northern-california/facilities/santa-clara-medical-center-100305/departments/dermatology-dlp-105470'],
+  ['sc','Los Gatos · Stanford','Stanford General Dermatology','14251 Winchester Blvd, Suite 200','650-723-6316','和 Santa Clara 可通过同一电话询问号源','https://stanfordhealthcare.org/content/shc/en-tools/maps/clinics/general-dermatology-clinic-los-gatos.html'],
+  ['mv','Mountain View · 专科诊所','Golden State Dermatology','2490 Hospital Dr, Suite 201','650-962-4600','El Camino 目录列有新患者预约电话','https://www.getcare.elcaminohealth.org/providers/krystle-wang-md-1386960847-1'],
+  ['mv','Mountain View · 专科诊所','Duke Khuu, MD','889 Castro St','650-969-5488','El Camino 医生目录列为接收新患者','https://www.getcare.elcaminohealth.org/providers/duke-khuu-md-1073724217-1'],
+  ['mv','Los Altos · El Camino 网络','Siavosh Vossough, MD','86 3rd St, Unit 114','650-949-2771','官网提供新患者预约电话','https://www.getcare.elcaminohealth.org/providers?search=Dermatology']
+];
+const plan = document.querySelector('#plan');
+function updatePlan() { document.querySelector('#steps').textContent = plans[plan.value]; }
+plan.addEventListener('change', updatePlan);
+updatePlan();
+function render(region) {
+  const visible = clinics.filter(row => region === 'all' || row[0] === region);
+  document.querySelector('#count').textContent = visible.length + ' 个就医选项';
+  document.querySelector('#cards').innerHTML = visible.map(([, label, name, address, phone, detail, url]) =>
+    `<article class="card"><span class="tag">${label}</span><h3>${name}</h3><p>${address}</p><p>${detail}</p><div class="actions">${phone ? `<a class="call" href="tel:+1${phone.replaceAll('-', '')}">${phone}</a>` : ''}<a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name} 机构官网">机构官网</a><a href="https://www.google.com/maps/dir/?api=1&amp;origin=95126&amp;destination=${encodeURIComponent(address + ", " + label.split(" · ")[0] + ", CA")}&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">查车程</a></div></article>`).join('');
+}
+for (const button of document.querySelectorAll('.filters button')) {
+  button.addEventListener('click', () => {
+    document.querySelector('.filters [aria-pressed="true"]').setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-pressed', 'true');
+    render(button.dataset.region);
+  });
+}
+document.querySelector('.copy').addEventListener('click', async () => {
+  const status = document.querySelector('#copy-status');
+  try {
+    await navigator.clipboard.writeText(document.querySelector('#script-text').textContent);
+    status.textContent = '已复制';
+  } catch {
+    status.textContent = '请选中上方英文后复制';
+  }
+});
+render('all');
+</script>
+</body>
+</html>
